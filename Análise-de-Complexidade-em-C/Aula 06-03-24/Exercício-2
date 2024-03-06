@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *ponteiro;
+    
+    ponteiro = malloc(sizeof(int));
+    
+    printf("O Endereço de Ponteiro é: %p\n", ponteiro);
+        *ponteiro = 90;
+    printf("E Conteúdo de Ponteiro é: %d\n", *ponteiro);
+        free(ponteiro);
+    
+    return 0;
+}
