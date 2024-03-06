@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+void troca(int *a, int *b) {
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void multiply(int *a, int *b) {
+    *a = *a * 2;
+    *b = *b * 2;
+}
+
+void checkSize(int *a, int *b) {
+    int temp1 = *a;
+    int temp2 = *b;
+    
+    if (temp1 > temp2) {
+        printf("\n► O Maior é A Letra (A): %d", temp1);
+    }
+    if (temp2 > temp1) {
+        printf("\n► O Maior é A Letra (B): %d", temp2);
+    } else {
+       printf("\n► Os Dois Números São Iguais (A) - (B): %d - %d", temp1, temp2); 
+    }
+}
+
+int main()
+{
+    int a;
+    int b;
+    int index;
+    
+    printf("▬ Por favor digite um número (A): ");
+    scanf("%d", &a);
+
+    printf("▬ Por favor digite um número (B): ");
+    scanf("%d", &b);
+    
+    troca(&a, &b);
+    printf("\n► A: %d \n► B: %d \n", a, b);
+
+    printf("\nQual Operação deseja Realizar?");
+    printf("(0=Nenhuma 1=Dobrar 2=Verificar Qual é o Maior)");
+    scanf("%d", &index);
+    
+    switch (index)
+    {
+       case 1:
+            multiply(&a, &b);
+            printf("\n► A: %d \n► B: %d \n", a, b);
+            break;
+
+       case 2:
+            checkSize(&a, &b);
+            break;
+    
+       case 0:
+            break;
+    
+       default:
+            break;
+    }
+
+    return 0;
+}
