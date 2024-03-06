@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include<stdlib.h>  
+
+int compare(const void* num1, const void* num2)
+{  
+    int a = *(int*) num1;  
+    int b = *(int*) num2;  
+    if(a > b)  
+    {  
+        return 1;  
+    }  
+    else if(a < b)  
+    {  
+        return -1;  
+    }  
+    return 0;  
+} 
+
+int main()
+{
+    int *vetor;
+    int index;
+    
+    vetor = (int *)malloc(sizeof(int)*3);
+    
+    printf("Por favor, Digite o Primeiro Número do Vetor: ");
+    scanf("%d", &vetor[0]);
+
+    printf("Por favor, Digite o Segundo Número do Vetor: ");
+    scanf("%d", &vetor[1]);
+    
+    printf("Por favor, Digite o Terceiro Número do Vetor: ");
+    scanf("%d", &vetor[2]);
+
+    printf("\n");
+
+    for (int i = 0; i<3; i++) {
+        printf("O Valor da Posição [%d] do Vetor é %d\n", i, vetor[i]);
+    }
+    printf("Com o Endereço do Vetor: %p\n\n", vetor);
+
+    printf("Deseja Ordenar esse Vetor? (y=1/n=0): ");
+    scanf("%d", &index);
+    
+    printf("\n");
+    
+    switch (index) {
+        case 1: {
+            printf("Ordernando em Crescente...\n");
+            qsort(vetor, 3, sizeof(int), compare); 
+            for (int i = 0; i<3; i++)
+                printf("O Valor da Posição [%d] do Vetor agora é %d\n", i, vetor[i]);
+                printf("Com o Endereço do Vetor: %p\n", vetor);
+        }
+        case 0: {
+            break;
+        }
+        default: {
+            printf("Opção Digitada não Encontrada! Encerrando...");
+            break;
+        }
+    }
+    
+    free(vetor);
+
+    return 0;
+}
