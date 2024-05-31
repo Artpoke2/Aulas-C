@@ -99,6 +99,7 @@ int main() {
         int* array = (int*)malloc(n * sizeof(int));
         int* arrayCopy = (int*)malloc(n * sizeof(int));
 
+        //Gerando os Números Aleatórios
         for (int j = 0; j < n; j++) {
             array[j] = rand() % 1000000;
         }
